@@ -2,16 +2,16 @@ import Lake
 import Init.Data.Nat.Basic
 import Init.Data.Basic
 
--- A lean version of proving the Pigeon Hole Principle without resorting to the excluded middle
--- The method is valid only for this specific problem definition
--- The key idea behind is that as every element in l1 is in l2, we may equivalently convert the list of elements in l1 into a list of indices referring to the corresponding element in l2
--- So that the problem becomes proving the Pigeon Hole Principle for a list of natural numbers, which is surely decidable
--- as natural numbers are decidable, during the proof, we are safe to talk about n1 = n2 \/ n1 /= n2
+-- A streamlined approach to demonstrating the Pigeonhole Principle without relying on the law of excluded middle.
+-- This method is specifically tailored to this problem definition.
+-- The underlying concept is that since every element in list l1 is present in list l2, we can transform the elements of l1 into a list of indices referring to the positions of the element in l2.
+-- Consequently, the challenge becomes demonstrating the Pigeonhole Principle for a list of natural numbers, which is certainly decidable.
+-- Given that natural numbers are decidable, we can confidently discuss whether n1 equals n2 or n1 does not equal n2 during the proof.
 
--- Additional technical point to mention is that the same element of l1 may not refer to the same index in l2 (as l2 may also be repeating)
--- but we have:
--- (1) if the indices list repeats then the original list l1 must repeat
--- (2) as the indices are less than the holes inside, there must be repitition there.
+-- An additional technical point to consider is that the same element in l1 may not correspond to the same index in l2 (since l2 may contain duplicates).
+-- However, we observe that:
+-- (1) If there is repetition in the indices list, then there must also be repetition in the original list l1.
+-- (2) Since the indices are fewer than the slots available, repetition must occur.
 
 def within (x : X) l :=
   match l with
